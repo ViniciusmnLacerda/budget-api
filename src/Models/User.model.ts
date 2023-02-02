@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { IGetUserResponse } from '../Interfaces';
+import ErrorClient from '../Utils/ErrorClient';
 
 export default class UserModel {
   private endpoint: string;
@@ -9,15 +10,12 @@ export default class UserModel {
   }
 
   public findAll = async () => {
-    try {
-      const { data, status } = await axios.get<IGetUserResponse>(this.endpoint, {
-        headers: {
-          Accept: 'application/json',
-        },
-      });
-      return { data, status };
-    } catch (err) {
-      console.log('Unexpected error: ', err);
-    }
+    const { data, status } = await axios.get<IGetUserResponse>(this.endpoint, {
+      headers: {
+        Accept: 'application/json',
+      },
+    });
+    if (!data) throw new ErrorClient(status, 'Something is wrong');
+    return { data, status };
   }
 }
