@@ -1,7 +1,7 @@
 import express from 'express';
 import 'express-async-errors';
 import errorMiddleware from './Middlewares/Error.middleware';
-import { userRouter } from './Routes';
+import { productRouter, userRouter } from './Routes';
 
 export default class App {
   public app: express.Express;
@@ -10,6 +10,7 @@ export default class App {
     this.app = express();
 
     this.app.use('/users', userRouter);
+    this.app.use('/products', productRouter);
     this.app.use(errorMiddleware);
   }
 
