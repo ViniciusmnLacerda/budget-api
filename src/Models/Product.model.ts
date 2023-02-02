@@ -10,6 +10,6 @@ export default class ProductModel {
 
   public findAll = async (): Promise<IProduct[]> => {
     const { data } = await axios.get(this.endpoint);
-    return data as unknown as IProduct[];
+    return data;
   }
 }
