@@ -1,4 +1,5 @@
 import { IProduct, IUser } from '../Interfaces';
+import ErrorClient from '../Utils/ErrorClient';
 import ProductModel from './Product.model';
 import UserModel from './User.model';
 
@@ -6,15 +7,17 @@ const userModel = new UserModel();
 const productModel = new ProductModel();
 
 export default class BudgetModel {
-  private getSelectedProducts = async (ids: number[]): Promise<(IProduct | undefined)[]> => {
+  private getSelectedProducts = async (ids: number[]): Promise<IProduct[]> => {
     const products = await productModel.findAll();
-    const selectedProducts = ids.map((id) => products.find((product: IProduct) => product.id === id))
-    return selectedProducts;
+    const selectedProducts = ids.map((id) => products.find((product: IProduct) => product.id === id));
+    if (!selectedProducts.every((product) => product !== undefined)) throw new ErrorClient(422, 'Invalid id');
+    return selectedProducts as IProduct[];
   }
 
-  private getUser = async (id: number):  Promise<(IUser | undefined)> => {
+  private getUser = async (id: number):  Promise<IUser> => {
     const users = await userModel.findAll();
     const user = users.find((u) => u.id === id);
+    if (!user) throw new ErrorClient(422, 'User not found');
     return user;
   } 
 
@@ -22,7 +25,7 @@ export default class BudgetModel {
     const selectedProducts = await this.getSelectedProducts(ids);
     const user = await this.getUser(id);
     if (user) {
-      selectedProducts.forEach((product) => {
+      selectedProducts.map((product) => {
         if (product) product?.price === product?.price * (user.tax / 100)
       })
     }

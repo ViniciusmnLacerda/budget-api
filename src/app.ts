@@ -9,6 +9,7 @@ export default class App {
   constructor() {
     this.app = express();
 
+    this.app.use(express.json());
     this.app.use('/users', userRouter);
     this.app.use('/products', productRouter);
     this.app.use('/budget', budgetRouter);

@@ -14,7 +14,7 @@ const errorMiddleware: ErrorRequestHandler = (
   if (err instanceof AxiosError) {
     return res.status(Number(err.response?.status)).json({ message: 'Not found' });
   }
-  
+
   return res.status(500).json({ message: 'Internal error' });
 };
 
