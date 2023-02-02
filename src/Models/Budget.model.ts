@@ -5,7 +5,7 @@ import UserModel from './User.model';
 const userModel = new UserModel();
 const productModel = new ProductModel();
 
-export default class BudgetService {
+export default class BudgetModel {
   private getSelectedProducts = async (ids: number[]): Promise<(IProduct | undefined)[]> => {
     const products = await productModel.findAll();
     const selectedProducts = ids.map((id) => products.find((product: IProduct) => product.id === id))
