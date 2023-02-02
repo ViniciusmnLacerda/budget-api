@@ -10,12 +10,15 @@ export default class UserModel {
   }
 
   public findAll = async () => {
-    const { data, status } = await axios.get<IGetUserResponse>(this.endpoint, {
-      headers: {
-        Accept: 'application/json',
-      },
-    });
-    if (!data) throw new ErrorClient(status, 'Something is wrong');
-    return { data, status };
+    try {
+      const { data, status } = await axios.get<IGetUserResponse>(this.endpoint, {
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+      return { data, status };
+    } catch (err) {
+      throw new ErrorClient(404, 'Somethin is wrong')
+    }
   }
 }

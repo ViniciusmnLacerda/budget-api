@@ -1,4 +1,6 @@
 import express from 'express';
+import 'express-async-errors';
+import errorMiddleware from './Middlewares/Error.middleware';
 import { userRouter } from './Routes';
 
 export default class App {
@@ -7,7 +9,8 @@ export default class App {
   constructor() {
     this.app = express();
 
-    this.app.use('/user', userRouter)
+    this.app.use('/users', userRouter);
+    this.app.use(errorMiddleware);
   }
 
   public start(PORT: string | number):void {
