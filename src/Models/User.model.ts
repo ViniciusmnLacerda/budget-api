@@ -8,7 +8,7 @@ export default class UserModel {
     this.endpoint = 'https://mockend.com/juunegreiros/BE-test-api/users';
   }
 
-  public async findAll() {
+  public findAll = async () => {
     try {
       const { data, status } = await axios.get<IGetUserResponse>(this.endpoint, {
         headers: {
