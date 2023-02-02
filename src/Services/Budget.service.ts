@@ -20,7 +20,7 @@ export default class BudgetService {
     return user;
   } 
 
-  public getBudget = async (ids: number[], id: number) => {
+  public getBudget = async (ids: number[], id: number): Promise<number> => {
     const selectedProducts = await this.getSelectedProducts(ids);
     const user = await this.getUser(id);
     const budget = await new BudgetModel().getBudget(selectedProducts, user);
