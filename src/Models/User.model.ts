@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { IGetUserResponse } from '../Interfaces';
+import { IUser } from '../Interfaces';
 
 export default class UserModel {
   private endpoint: string;
@@ -8,8 +8,8 @@ export default class UserModel {
     this.endpoint = 'https://mockend.com/juunegreiros/BE-test-api/users';
   }
 
-  public findAll = async () => {
-    const { data } = await axios.get<IGetUserResponse>(this.endpoint);
+  public findAll = async (): Promise<IUser[]> => {
+    const { data } = await axios.get(this.endpoint);
     return data;
   }
 }
