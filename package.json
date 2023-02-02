@@ -6,8 +6,7 @@
   "scripts": {
     "test": "mocha -r ts-node/register tests/**/**/*.test.ts --exit -t 60000",
     "dev": "tsnd src/server.ts",
-    "start": "node .",
-    "lint": "eslint ./src --ext .ts"
+    "start": "node ."
   },
   "repository": {
     "type": "git",
