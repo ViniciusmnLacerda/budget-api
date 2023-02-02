@@ -1,6 +1,5 @@
 import { IProduct, IUser } from '../Interfaces';
 
-
 export default class BudgetModel {
   public getBudget = async (selectedProducts: IProduct[], { tax }: IUser): Promise<number> => {
     const budget = selectedProducts

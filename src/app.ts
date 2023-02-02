@@ -1,6 +1,6 @@
 import express from 'express';
 import 'express-async-errors';
-import errorMiddleware from './Middlewares/Error.middleware';
+import { errorMiddleware } from './Middlewares';
 import { budgetRouter, productRouter, userRouter } from './Routes';
 
 export default class App {
