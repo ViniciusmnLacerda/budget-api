@@ -1,24 +1,19 @@
 import axios from 'axios';
 import { IGetUserResponse } from '../Interfaces';
-import ErrorClient from '../Utils/ErrorClient';
 
 export default class UserModel {
   private endpoint: string;
 
   constructor() {
-    this.endpoint = 'https://mockend.com/juunegreiros/BE-test-api/users';
+    this.endpoint = 'https://mockend.com/juunegreiros/BE-test-api/use';
   }
 
   public findAll = async () => {
-    try {
-      const { data, status } = await axios.get<IGetUserResponse>(this.endpoint, {
-        headers: {
-          Accept: 'application/json',
-        },
-      });
-      return { data, status };
-    } catch (err) {
-      throw new ErrorClient(404, 'Somethin is wrong')
-    }
+    const { data } = await axios.get<IGetUserResponse>(this.endpoint, {
+      headers: {
+        Accept: 'application/json',
+      },
+    });
+    return data;
   }
 }
