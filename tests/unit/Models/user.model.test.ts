@@ -17,9 +17,7 @@ describe('Users model test', function() {
     sinon.stub(axios, 'get').resolves(users);
     const data = await new UserModel().findAll();
 
-    console.log('aqui: ', data);
-    
-    // expect(data).to.be.deep.equal(users);
+    expect(data).to.be.deep.equal(users.data);
     expect(axios.get).to.have.been.calledWith('https://mockend.com/juunegreiros/BE-test-api/users');
   })
 });
