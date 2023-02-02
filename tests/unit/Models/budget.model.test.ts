@@ -6,7 +6,7 @@ import { user } from '../../mocks/user.mock';
 
 const budgetModel = new BudgetModel();
 
-describe('Budget service test', function() {
+describe('Budget model test', function() {
   afterEach(function() {
     sinon.restore();
   })

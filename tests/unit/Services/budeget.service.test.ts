@@ -2,7 +2,8 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 import { ProductModel, UserModel } from '../../../src/Models';
 import { BudgetService } from '../../../src/Services';
-import { invalidId, invalidIdBody, validBody, validId } from '../../mocks/budget.mock';
+import { invalidId, invalidIdBody, selectedProducts, validBody, validId } from '../../mocks/budget.mock';
+import { users } from '../../mocks/user.mock';
 
 const budgetService = new BudgetService();
 
@@ -35,6 +36,8 @@ describe('Budget service test', function() {
   })
 
   it('should return the budget', async function () {
+    sinon.stub(productModel, 'findAll').resolves(selectedProducts);
+    sinon.stub(userModel, 'findAll').resolves(users.data)
     sinon.stub(budgetService, 'getBudget').resolves(11348.35);
 
     const budget = await budgetService.getBudget(validBody, validId);
