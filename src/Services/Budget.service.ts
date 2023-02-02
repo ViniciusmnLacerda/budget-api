@@ -13,7 +13,7 @@ export default class BudgetService {
     return selectedProducts as IProduct[];
   }
 
-  private getUser = async (id: number):  Promise<IUser> => {
+  private getUser = async (id: number): Promise<IUser> => {
     const users = await userModel.findAll();
     const user = users.find((u) => u.id === id);
     if (!user) throw new ErrorClient(422, 'User not found');
