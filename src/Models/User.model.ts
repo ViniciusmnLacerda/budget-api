@@ -5,15 +5,11 @@ export default class UserModel {
   private endpoint: string;
 
   constructor() {
-    this.endpoint = 'https://mockend.com/juunegreiros/BE-test-api/use';
+    this.endpoint = 'https://mockend.com/juunegreiros/BE-test-api/users';
   }
 
   public findAll = async () => {
-    const { data } = await axios.get<IGetUserResponse>(this.endpoint, {
-      headers: {
-        Accept: 'application/json',
-      },
-    });
+    const { data } = await axios.get<IGetUserResponse>(this.endpoint);
     return data;
   }
 }
