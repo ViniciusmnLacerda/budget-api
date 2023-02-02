@@ -6,11 +6,11 @@ import { user } from '../../mocks/user.mock';
 
 const budgetModel = new BudgetModel();
 
-describe('Products model test', function() {
+describe('Budget service test', function() {
   afterEach(function() {
-    (budgetModel.getBudget as sinon.SinonStub).restore();
+    sinon.restore();
   })
-
+  
   it('should return the budget', async function () {
     sinon.stub(budgetModel, 'getBudget').resolves(11348.35);
 
