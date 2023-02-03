@@ -14,7 +14,10 @@ const errorMiddleware: ErrorRequestHandler = (
   if (err instanceof AxiosError) {
     return res.status(Number(err.response?.status)).json({ message: 'Not found' });
   }
-
+  if (err instanceof SyntaxError) {
+    return res.status(422).json({ message: 'Fields must be numbers'})
+  }
+  
   return res.status(500).json({ message: 'Internal error' });
 };
 
