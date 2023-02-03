@@ -13,8 +13,7 @@ Back-end:
 
 ## Instalando Dependências
 ```bash
-cd budget-api/ 
-npm install
+cd budget-api/ && npm install
 ``` 
 ## Executando aplicação
 
