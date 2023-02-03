@@ -7,7 +7,7 @@ const productService = new ProductService();
 
 describe('Product service test', function() {
   afterEach(function() {
-    (productService.findAll as sinon.SinonStub).restore();
+    sinon.restore();
   })
 
   it('should return the list of all products', async function () {

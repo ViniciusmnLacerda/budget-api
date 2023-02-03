@@ -3,7 +3,6 @@ const validId = 1;
 const invalidBody = [1,2,'a'];
 const invalidIdBody = [1,2,20000000];
 const invalidId = 10000000000;
-const budgetMock = { budget: 11348.35 };
 
 const selectedProducts = [
   {
@@ -29,6 +28,5 @@ export {
   invalidBody,
   invalidIdBody,
   invalidId,
-  budgetMock,
   selectedProducts,
 };

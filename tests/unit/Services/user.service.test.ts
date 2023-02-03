@@ -7,7 +7,7 @@ const userService = new UserService();
 
 describe('User service test', function() {
   afterEach(function() {
-    (userService.findAll as sinon.SinonStub).restore();
+    sinon.restore();
   })
 
   it('should return the list of all users', async function () {
