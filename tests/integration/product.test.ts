@@ -10,7 +10,7 @@ chai.use(chaiHttp);
 const productModel = new ProductModel();
 const { app } = new App();
 
-describe.only('Products route tests', function () {
+describe('Products route tests', function () {
   afterEach(function() {
     sinon.restore();
   })

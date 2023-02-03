@@ -5,7 +5,7 @@ import { budgetMiddleware } from '../Middlewares';
 const budgetRouter = express.Router();
 
 budgetRouter.get(
-  '/:id', 
+  '/:id/:ids', 
   budgetMiddleware,
   new BudgetController().getBudget);
 
