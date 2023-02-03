@@ -31,7 +31,7 @@ describe('Budget service test', function() {
     try {
       await budgetService.getBudget(invalidIdBody, validId);
     } catch (err) {
-      expect((err as Error).message).to.be.equal('Invalid id')
+      expect((err as Error).message).to.be.equal('Invalid product id')
     }   
   })
 
