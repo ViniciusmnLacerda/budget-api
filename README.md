@@ -50,5 +50,5 @@ cd budget-api/ && npm install
 ```
   /budget/:id/:ids
 ``` 
-    id: Id de um usuário cadastrados
+    id: Id de um usuário cadastrado.
     ids: Array com ids dos produtos selecionados
