@@ -33,7 +33,7 @@ describe('Budget route tests', function () {
   it('with non-existent product id should return an error', async function() {
     sinon.stub(budgetModel, 'getBudget').resolves(undefined);
 
-    const { body, status } = await chai.request(app).get('/budget/1500/[1,2,30000]');
+    const { body, status } = await chai.request(app).get('/budget/1/[1,2,30000]');
     expect(body).to.be.deep.equal({ message: 'Invalid product id'});
     expect(status).to.be.equal(422);
   })
