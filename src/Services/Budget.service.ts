@@ -9,7 +9,7 @@ export default class BudgetService {
   private getSelectedProducts = async (ids: number[]): Promise<IProduct[]> => {
     const products = await productModel.findAll();
     const selectedProducts = ids.map((id) => products.find((product: IProduct) => product.id === id));
-    if (!selectedProducts.every((product) => product !== undefined)) throw new ErrorClient(422, 'Invalid id');
+    if (!selectedProducts.every((product) => product !== undefined)) throw new ErrorClient(422, 'Invalid product id');
     return selectedProducts as IProduct[];
   }
 
