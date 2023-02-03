@@ -4,7 +4,6 @@ import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 import { BudgetController } from '../../../src/Controllers';
 import { BudgetService } from '../../../src/Services';
-import { validBody } from '../../mocks/budget.mock';
 
 chai.use(sinonChai);
 
@@ -21,8 +20,7 @@ describe('Budget controller test', function() {
 
   it('should return the budget with status 200', async function() {
     sinon.stub(budgetService, 'getBudget').resolves(11348.35);
-    req.body = validBody;
-    req.params = { id: '1' }
+    req.params = { id: '1', ids: "[1,2,3]" }
 
     res.status = sinon.stub().returns(res);
     res.json = sinon.stub().returns(res);
