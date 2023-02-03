@@ -38,17 +38,17 @@ cd budget-api/ && npm install
 * Lista de usuários cadastrados:
 
 ```
-  /users
+ GET /users
 ``` 
 * Lista de produtos cadastrados:
 
 ```
-  /products
+ GET /products
 ``` 
 * Orçamento de um usuário cadastrato:
 
 ```
-  /budget/:id/:ids
+ GET /budget/:id/:ids
 ``` 
     id: Id de um usuário cadastrado.
     ids: Array com ids dos produtos selecionados
