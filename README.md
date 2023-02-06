@@ -57,19 +57,25 @@ O parâmetro ```ìd``` deve ser de um usuário cadastrado. O corpo da requisiç�
   
 Cada elemento do array representa o ID de um produto selecionado.
 
-Caso o ID enviado no parâmetro da requisição seja inválido o erro retornado será:
+Caso o ID enviado no parâmetro da requisição seja inválido, o erro retornado será:
   
     {
       "message": "User not found
     }
     
-Caso algum ID do body da requisição não seja do tipo number o erro retornado será:
+Caso o ID enviado no parâmetro da requisição tenha algum caractere que não seja algarismo, o erro retornado será:
+
+    {
+      "message": "Id must contain only number"
+    }
+    
+Caso algum ID do body da requisição não seja do tipo number, o erro retornado será:
 
     {
       "message": "Fields must be numbers"
     }
     
-Caso algum ID do body da requisição seja inexistente o erro retornado será: 
+Caso algum ID do body da requisição seja inexistente, o erro retornado será: 
 
     {
       "message": "Invalid product id"
