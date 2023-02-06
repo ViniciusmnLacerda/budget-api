@@ -48,7 +48,29 @@ cd budget-api/ && npm install
 * Orçamento de um usuário cadastrato:
 
 ```
- GET /budget/:id/:ids
+ POST /budget/:id
 ``` 
-    id: Id de um usuário cadastrado.
-    ids: Array com ids dos produtos selecionados
+    
+O parâmetro ```ìd``` deve ser de um usuário cadastrado. O corpo da requisição deve ter o seguinte formato: 
+
+    [1, 2, 3]
+  
+Cada elemento do array representa o ID de um produto selecionado.
+
+Caso o ID enviado no parâmetro da requisição seja inválido o erro retornado será:
+  
+    {
+      "message": "User not found
+    }
+    
+Caso algum ID do body da requisição não seja do tipo number o erro retornado será:
+
+    {
+      "message": "Fields must be numbers"
+    }
+    
+Caso algum ID do body da requisição seja inexistente o erro retornado será: 
+
+    {
+      "message": "Invalid product id"
+    }
