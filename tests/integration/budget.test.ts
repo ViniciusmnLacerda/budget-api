@@ -23,6 +23,14 @@ describe('Budget route tests', function () {
     expect(status).to.be.equal(422);
   })
 
+  it('with an invalid character in the ID should return an error', async function() {
+    sinon.stub(budgetModel, 'getBudget').resolves(undefined);
+
+    const { body, status } = await chai.request(app).post('/budget/1a').send(validBody);
+    expect(body).to.be.deep.equal({ message: 'Id must contain only number' });
+    expect(status).to.be.equal(400);
+  });
+
   it('with invalid list of id products should return an error', async function() {
     sinon.stub(budgetModel, 'getBudget').resolves(undefined);
 
