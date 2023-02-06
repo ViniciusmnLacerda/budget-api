@@ -10,7 +10,7 @@ const budgetService = new BudgetService();
 const userModel = new UserModel();
 const productModel = new ProductModel();
 
-describe.only('Budget service test', function() {
+describe('Budget service test', function() {
   afterEach(function() {
     sinon.restore();
   })
