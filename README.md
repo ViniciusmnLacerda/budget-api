@@ -51,7 +51,7 @@ cd budget-api/ && npm install
  POST /budget/:id
 ``` 
     
-O parâmetro ```ìd``` deve ser de um usuário cadastrado. O corpo da requisição deve ter o seguinte formato: 
+O parâmetro ```id``` deve ser de um usuário cadastrado. O corpo da requisição deve ter o seguinte formato: 
 
     [1, 2, 3]
   
